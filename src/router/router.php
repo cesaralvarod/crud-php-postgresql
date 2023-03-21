@@ -2,11 +2,14 @@
 
 include __DIR__ . "/../controllers/task.controller.php";
 
-$task_controller = new TaskController();
+$controller = new TaskController();
 
 $router = new \Bramus\Router\Router();
 
 $router->get("/", function () {
+  global $controller;
+  $tasks = $controller->getAll();
+
   include_once __DIR__ . "/../views/index.view.php";
 });
 

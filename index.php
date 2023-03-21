@@ -16,6 +16,6 @@ $db = new Database(
   $_ENV["DB_PORT"]
 );
 
-$connection = $db->connect();
+$db->connect();
 
 require(__DIR__ . "/src/router/router.php");

@@ -7,6 +7,7 @@ class Database
     private $name;
     private $host;
     private $port;
+    private $connection;
 
     public function __construct(
         string $user,
@@ -25,11 +26,36 @@ class Database
     public function connect()
     {
         try {
-            $connection = new PDO("pgsql:host=$this->host;port=$this->port;dbname=$this->name", $this->user, $this->pass);
+            $this->connection = new PDO("pgsql:host=$this->host;port=$this->port;dbname=$this->name", $this->user, $this->pass);
 
-            return $connection;
+            return $this->connection;
         } catch (Exception $e) {
             echo "An error ocurred when connecting database: " . $e->getMessage();
+        }
+    }
+
+    public function query(string $q)
+    {
+        try {
+            $stmt = $this->connection->query($q);
+            $data = $stmt->fetchAll();
+
+            return $data;
+        } catch (Exception $e) {
+            echo "An error ocurred in query: " . $e->getMessage();
+        }
+    }
+
+    public function execute(string $q, array $vars)
+    {
+        try {
+            $stmt = $this->connection->prepare($q);
+            $stmt->execute($vars);
+            $data = $stmt->fetchAll();
+
+            return $data;
+        } catch (Exception $e) {
+            echo "An error ocurred in query: " . $e->getMessage();
         }
     }
 }
