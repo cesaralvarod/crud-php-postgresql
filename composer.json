@@ -1,0 +1,25 @@
+{
+  "name": "cesaralvarod/crud-php-postgresql",
+  "description": "CRUD of tasks. PostgreSQL, PHP",
+  "type": "project",
+  "license":"MIT",
+  "autoload": {
+    "psr-4": {
+      "Cesaralvarod\\CrudPhpPostgresql\\": "src/"
+    }
+  },
+  "authors": [
+    {
+      "name": "Cesar Alvarado",
+      "email": "hola@cesaralvarod.com",
+      "role": "author, developer"
+    }
+  ],
+  "require": {
+    "vlucas/phpdotenv": "^5.5",
+    "bramus/router": "~1.6"
+  },
+  "require-dev": {
+    "phpunit/phpunit": "^10.0"
+  }
+}
