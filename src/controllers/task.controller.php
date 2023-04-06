@@ -4,29 +4,29 @@ include __DIR__ . "/../models/task.model.php";
 
 class TaskController
 {
-  private $model;
+    private $model;
 
-  public function __construct()
-  {
-    $this->model = new TaskModel();
-  }
+    public function __construct()
+    {
+        $this->model = new TaskModel();
+    }
 
-  public function getAll()
-  {
-    $tasks = $this->model->findAll();
+    public function getAll()
+    {
+        $tasks = $this->model->findAll();
 
-    return $tasks;
-  }
+        return $tasks;
+    }
 
-  public function getById()
-  {
-  }
+    public function getById()
+    {
+    }
 
-  public function update()
-  {
-  }
+    public function update()
+    {
+    }
 
-  public function delete()
-  {
-  }
+    public function delete()
+    {
+    }
 }
